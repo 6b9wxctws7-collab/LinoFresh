@@ -1,5 +1,6 @@
 import { MapPin, Zap, Droplets, Move, CloudRain } from "lucide-react";
 import { serviceAreas, requirements } from "@/lib/data";
+import MapBasel from "@/components/MapBasel";
 
 const reqIcons = [Zap, Droplets, Move, CloudRain];
 
@@ -7,17 +8,17 @@ export default function ServiceArea() {
   return (
     <section id="einsatzgebiet" className="py-16 md:py-24">
       <div className="container-page">
-        <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">
-          {/* Einsatzgebiet */}
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+          {/* Text-Spalte */}
           <div>
             <p className="eyebrow">Einsatzgebiet</p>
             <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
-              Basel und Umgebung
+              Basel und rund 10 km Umkreis
             </h2>
             <p className="mt-4 text-navy-800/70">
-              Zum Start bedienen wir Basel-Stadt sowie ausgewählte Orte in der
-              direkten Umgebung. Weitere Gebiete können nach Absprache angefragt
-              werden.
+              Wir sind mobil in Basel-Stadt und im Umkreis von rund 10 km
+              unterwegs – von Riehen bis Münchenstein. Weitere Gebiete gerne
+              nach Absprache.
             </p>
 
             <ul className="mt-6 flex flex-wrap gap-2.5">
@@ -37,28 +38,31 @@ export default function ServiceArea() {
             </a>
           </div>
 
-          {/* Infobox: Das brauchen wir vor Ort */}
-          <div className="rounded-3xl border border-teal-100 bg-teal-50/60 p-7 sm:p-8">
-            <h3 className="text-lg font-bold text-navy-900">
-              Das brauchen wir vor Ort
-            </h3>
-            <ul className="mt-6 flex flex-col gap-5">
-              {requirements.map((req, index) => {
-                const Icon = reqIcons[index];
-                return (
-                  <li key={req.label} className="flex items-start gap-4">
-                    <span className="flex h-10 w-10 flex-none items-center justify-center rounded-2xl bg-white text-teal-600 shadow-soft">
-                      <Icon size={18} aria-hidden="true" />
-                    </span>
-                    <div>
-                      <p className="font-semibold text-navy-900">{req.label}</p>
-                      <p className="text-sm text-navy-800/70">{req.text}</p>
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+          {/* Karte */}
+          <MapBasel />
+        </div>
+
+        {/* Infobox: Das brauchen wir vor Ort */}
+        <div className="mt-10 rounded-3xl border border-teal-100 bg-teal-50/60 p-7 sm:p-8 lg:mt-14">
+          <h3 className="text-lg font-bold text-navy-900">
+            Das brauchen wir vor Ort
+          </h3>
+          <ul className="mt-6 grid gap-5 sm:grid-cols-2">
+            {requirements.map((req, index) => {
+              const Icon = reqIcons[index];
+              return (
+                <li key={req.label} className="flex items-start gap-4">
+                  <span className="flex h-10 w-10 flex-none items-center justify-center rounded-2xl bg-white text-teal-600 shadow-soft">
+                    <Icon size={18} aria-hidden="true" />
+                  </span>
+                  <div>
+                    <p className="font-semibold text-navy-900">{req.label}</p>
+                    <p className="text-sm text-navy-800/70">{req.text}</p>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </div>
     </section>
