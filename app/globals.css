@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Sticky-Header-Offset für Ankerlinks */
+  section[id] {
+    scroll-margin-top: 5.5rem;
+  }
+
+  body {
+    @apply bg-white text-navy-900 antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Gut sichtbare, barrierearme Fokuszustände */
+  :focus-visible {
+    @apply outline-none ring-2 ring-teal-500 ring-offset-2 ring-offset-white;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply btn bg-teal-500 text-white shadow-soft hover:bg-teal-600 hover:shadow-card-hover active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply btn border border-navy-200 bg-white text-navy-900 hover:border-teal-400 hover:text-teal-700 active:scale-[0.98];
+  }
+
+  .btn-ghost-light {
+    @apply btn border border-white/25 bg-white/5 text-white hover:bg-white/10 active:scale-[0.98];
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-teal-700;
+  }
+
+  .card {
+    @apply rounded-3xl border border-navy-100 bg-white shadow-card;
+  }
+}
+
+/* Respektiert reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
