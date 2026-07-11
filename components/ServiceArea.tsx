@@ -12,7 +12,7 @@ export default function ServiceArea() {
           <div>
             <p className="eyebrow">Einsatzgebiet</p>
             <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
-              Basel zuerst. Kurze Wege, bessere Termine.
+              Basel und Umgebung
             </h2>
             <p className="mt-4 text-navy-800/70">
               Zum Start bedienen wir Basel-Stadt sowie ausgewählte Orte in der
