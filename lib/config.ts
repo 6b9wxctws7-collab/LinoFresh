@@ -17,6 +17,18 @@ export const siteConfig = {
 } as const;
 
 /**
+ * Aktueller Rabatt / Aktionscode.
+ * `active` auf false setzen, um Aktionsbalken und Hinweise auszublenden.
+ */
+export const promo = {
+  active: true,
+  code: "FRESH20",
+  amount: "CHF 20",
+  headline: "Neukunden-Aktion",
+  description: "CHF 20 Rabatt auf deine erste Innenreinigung",
+} as const;
+
+/**
  * Baut einen WhatsApp-Link (wa.me) mit vorbereiteter Nachricht.
  */
 export function buildWhatsAppLink(message: string): string {

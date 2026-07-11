@@ -17,7 +17,7 @@ export const packages: ServicePackage[] = [
   {
     id: "basic",
     name: "Basic",
-    price: "CHF XX",
+    price: "CHF 89",
     features: [
       "Innenraum saugen",
       "Cockpit und Oberflächen",
@@ -29,7 +29,7 @@ export const packages: ServicePackage[] = [
     id: "intensiv",
     name: "Intensiv",
     label: "Beliebt",
-    price: "CHF XX",
+    price: "CHF 149",
     featured: true,
     features: [
       "Alles aus Basic",
@@ -41,7 +41,7 @@ export const packages: ServicePackage[] = [
   {
     id: "tiefenreinigung",
     name: "Tiefenreinigung",
-    price: "ab CHF XX",
+    price: "ab CHF 219",
     features: [
       "Polster- oder Teppichwäsche",
       "Intensive Fleckenbehandlung",

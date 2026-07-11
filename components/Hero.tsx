@@ -77,7 +77,7 @@ export default function Hero() {
                 Innenreinigung
               </p>
               <p className="mt-0.5 text-lg font-bold text-navy-900">
-                Ab CHF XX
+                Ab CHF 89
                 <span className="ml-1 text-sm font-medium text-navy-800/60">
                   pro Reinigung
                 </span>

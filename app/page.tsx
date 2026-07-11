@@ -1,3 +1,4 @@
+import PromoBar from "@/components/PromoBar";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
@@ -12,6 +13,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 export default function Home() {
   return (
     <>
+      <PromoBar />
       <Header />
       <main id="main">
         <Hero />

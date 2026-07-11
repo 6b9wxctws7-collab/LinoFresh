@@ -2,7 +2,12 @@
 
 import { useState, type FormEvent } from "react";
 import { Phone, Mail, MapPin, MessageCircle, Send } from "lucide-react";
-import { siteConfig, buildWhatsAppLink, buildMailtoLink } from "@/lib/config";
+import {
+  siteConfig,
+  promo,
+  buildWhatsAppLink,
+  buildMailtoLink,
+} from "@/lib/config";
 import { packages } from "@/lib/data";
 
 type FormState = {
@@ -25,7 +30,7 @@ export default function Contact() {
   const [form, setForm] = useState<FormState>(initialState);
 
   function buildMessage(): string {
-    return [
+    const lines = [
       "Neue Anfrage über linofresh.ch",
       "",
       `Name: ${form.name || "-"}`,
@@ -33,7 +38,11 @@ export default function Contact() {
       `Fahrzeug: ${form.vehicle || "-"}`,
       `Paket: ${form.paket || "-"}`,
       `Nachricht: ${form.message || "-"}`,
-    ].join("\n");
+    ];
+    if (promo.active) {
+      lines.push(`Rabattcode: ${promo.code}`);
+    }
+    return lines.join("\n");
   }
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {

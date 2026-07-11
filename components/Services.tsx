@@ -1,5 +1,6 @@
-import { Check, Plus } from "lucide-react";
+import { Check, Plus, Tag } from "lucide-react";
 import { packages, addOns } from "@/lib/data";
+import { promo } from "@/lib/config";
 
 export default function Services() {
   return (
@@ -14,6 +15,14 @@ export default function Services() {
             Wähle das passende Paket. Den finalen Preis bestätigen wir nach
             deinen Fotos und dem Zustand des Fahrzeugs.
           </p>
+
+          {promo.active && (
+            <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-teal-200 bg-teal-50 px-4 py-2 text-sm font-medium text-navy-900">
+              <Tag size={15} className="text-teal-600" aria-hidden="true" />
+              {promo.headline}: {promo.amount} Rabatt mit Code
+              <span className="font-bold text-teal-700">{promo.code}</span>
+            </p>
+          )}
         </div>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
